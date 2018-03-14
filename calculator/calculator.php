@@ -8,7 +8,7 @@
             $f = $_GET["1v"];
             $s = $_GET["2v"];
             $op = $_GET["operator"];
-            if (trim($x) == "" || trim($y) == "" || $op == "") {
+            if (trim($f) == "" || trim($s) == "" || $op == "") {
                 echo "Missing field. Enter x,y and the operation.";
             }
             else {

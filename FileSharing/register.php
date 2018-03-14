@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8"/>
-        <title>File Sharing Website</title>
+        <title>New User Registration</title>
         <style type="text/css">
         body{
 	        width: 760px; /* how wide to make your web page */
