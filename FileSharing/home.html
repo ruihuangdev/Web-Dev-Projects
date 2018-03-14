@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<head>
+<meta charset="utf-8"/>
+<title>File Sharing Website</title>
+<style type="text/css">
+body{
+	width: 760px; /* how wide to make your web page */
+	background-color: teal; /* what color to make the background */
+	margin: 0 auto;
+	padding: 0;
+	font:12px/16px Verdana, sans-serif; /* default font */
+    text-align: center;
+}
+div#main{
+	background-color: #FFF;
+	margin: 0;
+	padding: 10px;
+    
+}
+
+</style>
+</head>
+<body><div id="main">
+
+<p>Welcome to Rui Huang's file sharing website!</p>
+
+<p><b>Login Here:</b></p>
+<form name='login' action='login.php' method='post'>
+  Username: <input type='text' name='username'>
+  <input type='submit' value='sign in'>
+</form>
+
+<p><b>Not Registered?</b><br>Create or Delete User here:</p>
+<form name='register' action='register.php' method='post'>
+  Username: <input type='text' name='newusername'>
+  <input type='submit' name='action' value='create user'>
+  <input type='submit' name='action' value='delete user'>
+</form>
+
+</div></body>
+</html>
