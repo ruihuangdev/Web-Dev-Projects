@@ -1,6 +1,6 @@
 <?php
     $user = $_POST["username"];
-    $h = fopen("users.txt", "r");
+    $h = fopen("/home/ruihuang/.files/users.txt", "r");
     if ($user == ""){
         echo"User name cannot be blank";
         echo"<a href='home.html'>return to homepage </a>";
@@ -9,7 +9,7 @@
     while( !feof($h) ){
         $name = fgets($h);
         if ($user == trim($name)){
-            $url = "~ruihuang/myfiles.php?user" . $user;
+            $url = "/~ruihuang/FileSharing/viewfiles.php?user=" . $user;
             header('location: ' .$url);
             exit;
         }

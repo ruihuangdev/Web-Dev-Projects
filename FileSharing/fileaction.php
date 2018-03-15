@@ -1,8 +1,9 @@
 <?php
     session_start();
     $action = $_POST['act'];
-    $filename = $_POST['thefile'];
-    $loc = "view.php?user=" . $_SESSION['user'];
+	$filename = $_POST['thefile'];
+	$username = $_SESSION['username'];
+    $loc = "viewfiles.php?user=" . $username;
     if ($action == 'View Selected File') {
     // Get the MIME type (e.g., image/jpeg)
 	    $finfo = new finfo(FILEINFO_MIME_TYPE);
@@ -24,17 +25,17 @@
     if ($action == 'Upload File') {
 	    $uploadedfilename = basename($_FILES['uploadedfile']['name']);
 	    if (!preg_match('/^[\w_\.\-]+$/', $uploadedfilename)) {
-		    echo "Invalid filename";
-		    exit;
+			echo "Invalid filename";
+			echo"<a href='home.html'>return to homepage </a>";
 	    }
-	    $full_path = sprintf("/home/users/%s/files/%s", $_SESSION['user'], $uploadedfilename);
+	    $full_path = sprintf("/home/FileSharing/users/%s/files/%s", $_SESSION['user'], $uploadedfilename);
 	    if (move_uploaded_file($_FILES['uploadedfile']['tmp_name'], $full_path)) {
 		    header("Location: " . $loc);
 		    exit;
         } 
         else {
 		    header("Location: " . $loc);
-		    xit;
+		    exit;
 	    }
     }
 ?>
