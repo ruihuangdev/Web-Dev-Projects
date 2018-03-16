@@ -28,7 +28,9 @@
              <label for="uploadfile_input">Choose a file to upload:</label> 
              <input name="uploadedfile" type="file" id="uploadfile_input" />
  	    </p>
- 	    <p><input type="submit" name="act" value="Upload File"/></p>
+ 	    <p>
+            <input type="submit" name="act" value="Upload File"/>
+        </p>
     </form>
 
 

@@ -29,7 +29,6 @@
         }
         
         $dir = sprintf("/home/users/%s", $username);
-        echo $dir;
         $filepath = "/home/ruihuang/.files/users.txt";
         $userexist = FALSE;
         $h = fopen("/home/ruihuang/.files/users.txt", "r");
