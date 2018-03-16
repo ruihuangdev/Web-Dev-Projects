@@ -29,6 +29,7 @@
         }
         
         $dir = sprintf("/home/users/%s", $username);
+        echo $dir;
         $filepath = "/home/ruihuang/.files/users.txt";
         $userexist = FALSE;
         $h = fopen("/home/ruihuang/.files/users.txt", "r");
@@ -57,7 +58,6 @@
 
         if ($_POST['action'] == 'Create User') {
             if (!$userexist) {
-                echo 'Here: '. $userexist;
                 mkdir($dir, 0777);
                 mkdir($dir . "/files", 0777);
                 $file = fopen($filepath, 'a');
