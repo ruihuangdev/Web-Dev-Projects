@@ -241,3 +241,58 @@ header .nav-login a {
 .signup-form button:hover{
     background-color: #111;
 }
+
+/*postcomment*/
+.postcomment-textarea{
+    width: 850px;
+    height: 80px;
+    background-color: #fff;
+    resize: none;
+}
+
+.postcomment-button{
+    width: 80px;
+    height: 30px;
+    background-color:#282828;
+    border:none;
+    color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+/*poststory*/
+
+.poststory-textarea{
+    width: 850px;
+    height: 80px;
+    background-color: #fff;
+    resize: none;
+}
+
+.poststory-button{
+    width: 80px;
+    height: 30px;
+    background-color:#282828;
+    border:none;
+    color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+.commentbox{
+    width: 845px;
+    padding: 20px;
+    margin-bottom: 4px;
+    background-color: #fff;
+    border-radius: 4px;
+}
+
+.commentbox p{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    line-height: 16px;
+    color: #282828;
+    font-weight: 100;
+}
