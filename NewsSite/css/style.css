@@ -262,15 +262,21 @@ header .nav-login a {
 }
 
 /*poststory*/
-
-.poststory-textarea{
+.storytitle{
     width: 850px;
-    height: 80px;
+    height: 20px;
     background-color: #fff;
     resize: none;
 }
 
-.poststory-button{
+.storytextarea{
+    width: 850px;
+    height: 100px;
+    background-color: #fff;
+    resize: none;
+}
+
+.storybutton{
     width: 80px;
     height: 30px;
     background-color:#282828;
