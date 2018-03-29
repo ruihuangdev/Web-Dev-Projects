@@ -302,3 +302,39 @@ header .nav-login a {
     color: #282828;
     font-weight: 100;
 }
+
+.editform{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+
+.editform button{
+    width: 40px;
+    height: 20px;
+    color: #282828;
+    background-color: #fff;
+    opacity: 0.7;
+}
+
+.editform button:hover{
+    opacity: 1;
+}
+
+.deleteform{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+
+.deleteform button{
+    width: 60px;
+    height: 20px;
+    color: #282828;
+    background-color: #fff;
+    opacity: 0.7;
+}
+
+.deleteform button:hover{
+    opacity: 1;
+}

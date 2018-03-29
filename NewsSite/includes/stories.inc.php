@@ -57,7 +57,15 @@ function getStory(){
                 <input type='hidden' name='content' value=$content> 
                 <input type='hidden' name='time' value=$time>
                 <button>Edit</button>
-            </form>";//TODO fix a bug where the content to edit always display the original
+            </form>
+            <br><br>
+            <form class='deleteform' method='POST' action='".deleteStory()."'>
+                <input type='hidden' name='sid' value=$sid>
+                <button type='submit' name='storyDelete'>Delete</button>
+            </form>
+            ";//TODO fix a bug where the content to edit always display the original
+            
+        
         }
         echo"</div>";
     }
@@ -100,5 +108,24 @@ function editStory(){
         exit();
     }
 }
+
+function deleteStory(){
+    if(isset($_SESSION['u_id'])){
+        if(isset($_POST['storyDelete'])){
+            $sid = $_POST['sid'];
+
+                include 'database.php'; 
+                $stmt = $mysqli->prepare("DELETE FROM stories where story_id='$sid'");
+                if(!$stmt){
+                    printf("Query Prep Failed: %s\n", $mysqli->error);
+                    exit;
+                }
+                $stmt->execute();
+                $stmt->close();
+                header("Location: main.php");
+                exit();
+            }
+        }
+    }
 ?>
 
