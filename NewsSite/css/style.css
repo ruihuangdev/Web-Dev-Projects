@@ -303,13 +303,13 @@ header .nav-login a {
     font-weight: 100;
 }
 
-.editform{
+#editform{
     position: absolute;
     top: 0px;
-    right: 0px;
+    right: 60px;
 }
 
-.editform button{
+#editform #editbutton{
     width: 40px;
     height: 20px;
     color: #282828;
@@ -317,24 +317,24 @@ header .nav-login a {
     opacity: 0.7;
 }
 
-.editform button:hover{
+#editform #editbutton:hover{
     opacity: 1;
 }
 
-.deleteform{
+#deleteform{
     position: absolute;
     top: 0px;
     right: 0px;
 }
 
-.deleteform button{
-    width: 60px;
+#deleteform #deletebutton{
+    width: 40px;
     height: 20px;
     color: #282828;
     background-color: #fff;
     opacity: 0.7;
 }
 
-.deleteform button:hover{
+#deleteform #deletebutton:hover{
     opacity: 1;
 }

@@ -1,4 +1,8 @@
 <?php
+function clean($string) {
+    $string = str_replace(' ', '+', $string); // Replaces all spaces with hyphens.
+    return preg_replace('/[^A-Za-z0-9\-]/', '', $string); // Removes special chars.
+ }
 
 function setStory(){
     if(isset($_SESSION['u_id'])){
@@ -8,18 +12,19 @@ function setStory(){
             $title = $_POST['title'];
             $content = $_POST['content'];
             $rating = 1;
+            $link = "/~ruihuang/NewsSite/viewstory.php?=".clean($time)."&".clean($title);
             if(empty($content)|| empty($title)){
                 echo "Cannot submit stories without title or content!";
             }          
 
             else{
                 include 'database.php'; 
-                $stmt = $mysqli->prepare("INSERT INTO stories (user_uid, timeposted , title, content, rating) VALUES (?,?,?,?,?)");
+                $stmt = $mysqli->prepare("INSERT INTO stories (user_uid, timeposted , title, link, content, rating) VALUES (?,?,?,?,?,?)");
                 if(!$stmt){
                     printf("Query Prep Failed: %s\n", $mysqli->error);
                     exit;
                 }
-                $stmt->bind_param('ssssi', $uid, $time, $title, $content, $rating);
+                $stmt->bind_param('sssssi', $uid, $time, $title, $link, $content, $rating);
                 $stmt->execute();
                 $stmt->close();
                 echo "Story submitted!";
@@ -40,32 +45,34 @@ function getStory(){
         exit;
     }
     $stmt->execute();
-    $stmt->bind_result($sid, $uid, $title, $content, $time, $rating);
+    $stmt->bind_result($sid, $uid, $title, $link, $content, $time, $rating);
     while ($stmt->fetch()){
         echo "<div class='commentbox'><p>";
             echo "Rating: $rating<br>";
-            echo $title."<br>";
+            echo $title;
+            echo "<form method='POST' action='$link'>
+                <input type='hidden' name='sid' value=$sid>
+                <button>Go to story</button>
+                </form>"."<br>";
             echo "Posted by $uid at $time <br>";
             echo nl2br($content);
         echo "</p>";
         if(isset($_SESSION['u_id'])){
             echo"
-            <form class='editform' method='POST' action='editstory.php'>
+            <form id='editform' method='POST' action='editstory.php'>
                 <input type='hidden' name='sid' value=$sid>
                 <input type='hidden' name='uid' value=$uid>
                 <input type='hidden' name='title' value=$title>
                 <input type='hidden' name='content' value=$content> 
                 <input type='hidden' name='time' value=$time>
-                <button>Edit</button>
+                <button id='editbutton'>Edit</button>
             </form>
             <br><br>
-            <form class='deleteform' method='POST' action='".deleteStory()."'>
+            <form id='deleteform' method='POST' action='".deleteStory()."'>
                 <input type='hidden' name='sid' value=$sid>
-                <button type='submit' name='storyDelete'>Delete</button>
+                <button type='submit' id='deletebutton' name='storyDelete'>Delete</button>
             </form>
             ";//TODO fix a bug where the content to edit always display the original
-            
-        
         }
         echo"</div>";
     }
