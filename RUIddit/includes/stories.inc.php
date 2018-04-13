@@ -13,7 +13,7 @@ function setStory(){
             $title = $_POST['title'];
             $content = $_POST['content'];
             $rating = 1;
-            $link = "/~ruihuang/NewsSite/viewstory.php?=".clean($time)."&".clean($title);
+            $link = "/~ruihuang/RUIddit/viewstory.php?=".clean($time)."&".clean($title);
             if(empty($content)|| empty($title)){
                 echo "Cannot submit stories without title or content!";
             }          
@@ -70,7 +70,7 @@ function getStory(){
             </form>
             <form class='delete-form' method='POST' action='".deleteStory()."'>
                 <input type='hidden' name='sid' value=$sid>
-                <button>Delete</button>
+                <button type='submit' name='storyDelete'>Delete</button>
             </form>
             ";
         }
@@ -81,7 +81,6 @@ function getStory(){
 
 function editStory(){
     if(isset($_SESSION['u_id'])){
-        
         if(isset($_POST['storyEdit'])){
             
             $sid = $_POST['sid'];
