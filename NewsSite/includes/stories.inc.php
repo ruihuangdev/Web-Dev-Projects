@@ -59,20 +59,19 @@ function getStory(){
         echo "</p>";
         if(isset($_SESSION['u_id'])){
             echo"
-            <form id='editform' method='POST' action='editstory.php'>
+            <form class='edit-form' method='POST' action='editstory.php'>
                 <input type='hidden' name='sid' value=$sid>
                 <input type='hidden' name='uid' value=$uid>
                 <input type='hidden' name='title' value=$title>
                 <input type='hidden' name='content' value=$content> 
                 <input type='hidden' name='time' value=$time>
-                <button id='editbutton'>Edit</button>
+                <button id='edit-button'>Edit</button>
             </form>
-            <br><br>
-            <form id='deleteform' method='POST' action='".deleteStory()."'>
+            <form class='delete-form' method='POST' action='".deleteStory()."'>
                 <input type='hidden' name='sid' value=$sid>
-                <button type='submit' id='deletebutton' name='storyDelete'>Delete</button>
+                <button type='submit' id='delete-button' name='storyDelete'>Delete</button>
             </form>
-            ";//TODO fix a bug where the content to edit always display the original
+            ";
         }
         echo"</div>";
     }
