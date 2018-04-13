@@ -306,14 +306,9 @@ header .nav-login a {
 }
 
 /* stories.inc.php */
-.edit-form{
-    position: absolute;
-    top: 0px;
-    right: 60px;
-}
 
 .edit-form button{
-    width: 40px;
+    width: 60px;
     height: 20px;
     color: #282828;
     background-color: #fff;
@@ -324,14 +319,8 @@ header .nav-login a {
     opacity: 1;
 }
 
-.delete-form{
-    position: absolute;
-    top: 0px;
-    right: 0px;
-}
-
 .delete-form button{
-    width: 40px;
+    width: 60px;
     height: 20px;
     color: #282828;
     background-color: #fff;

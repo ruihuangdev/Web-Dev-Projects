@@ -57,7 +57,7 @@ function getStory(){
                 </form>"."<br>";
             echo "Posted by $uid at $time <br>";
             echo nl2br($content);
-        echo "</p>";
+        echo "</p><br>";
         if(isset($_SESSION['u_id'])){
             echo"
             <form class='edit-form' method='POST' action='editstory.php'>
