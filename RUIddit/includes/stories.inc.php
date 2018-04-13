@@ -1,4 +1,5 @@
 <?php
+
 function clean($string) {
     $string = str_replace(' ', '+', $string); // Replaces all spaces with hyphens.
     return preg_replace('/[^A-Za-z0-9\-]/', '', $string); // Removes special chars.
@@ -52,7 +53,7 @@ function getStory(){
             echo $title;
             echo "<form method='POST' action='$link'>
                 <input type='hidden' name='sid' value=$sid>
-                <button>Go to story</button>
+                <button id='storybutton'>Go to Story</button>
                 </form>"."<br>";
             echo "Posted by $uid at $time <br>";
             echo nl2br($content);
@@ -65,11 +66,11 @@ function getStory(){
                 <input type='hidden' name='title' value=$title>
                 <input type='hidden' name='content' value=$content> 
                 <input type='hidden' name='time' value=$time>
-                <button id='edit-button'>Edit</button>
+                <button>Edit</button>
             </form>
             <form class='delete-form' method='POST' action='".deleteStory()."'>
                 <input type='hidden' name='sid' value=$sid>
-                <button type='submit' id='delete-button' name='storyDelete'>Delete</button>
+                <button>Delete</button>
             </form>
             ";
         }

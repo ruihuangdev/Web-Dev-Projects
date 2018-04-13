@@ -21,6 +21,7 @@ function getStory($thisstory){
     }
     $stmt->close();
 }
+
 function setComment(){
     if(isset($_SESSION['u_id'])){
         if(isset($_POST['commentSubmit'])){
@@ -50,9 +51,6 @@ function setComment(){
         echo "Sign in to comment!<br><br>";
     }
 }
-
-
-
 
 function getComments($thisstory){
     include 'database.php';

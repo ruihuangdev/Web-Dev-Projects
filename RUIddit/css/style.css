@@ -243,14 +243,14 @@ header .nav-login a {
 }
 
 /*postcomment*/
-.postcomment-textarea{
+.postcomment textarea{
     width: 850px;
     height: 80px;
     background-color: #fff;
     resize: none;
 }
 
-.postcomment-button{
+.postcomment button{
     width: 80px;
     height: 30px;
     background-color:#282828;
@@ -287,6 +287,8 @@ header .nav-login a {
     cursor: pointer;
 }
 
+/* comments.inc.php */
+
 .commentbox{
     width: 845px;
     padding: 20px;
@@ -310,7 +312,7 @@ header .nav-login a {
     right: 60px;
 }
 
-.edit-form #edit-button{
+.edit-form button{
     width: 40px;
     height: 20px;
     color: #282828;
@@ -318,7 +320,7 @@ header .nav-login a {
     opacity: 0.7;
 }
 
-.edit-form #edit-button:hover{
+.edit-form button:hover{
     opacity: 1;
 }
 
@@ -328,7 +330,7 @@ header .nav-login a {
     right: 0px;
 }
 
-.delete-form #delete-button{
+.delete-form button{
     width: 40px;
     height: 20px;
     color: #282828;
@@ -336,6 +338,6 @@ header .nav-login a {
     opacity: 0.7;
 }
 
-.delete-form #delete-button:hover{
+.delete-form button:hover{
     opacity: 1;
 }
