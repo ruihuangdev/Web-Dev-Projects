@@ -4,4 +4,5 @@ This repo is a compilation of projects following WashU's CSE330 'Rapid Prototype
 List of topics involved:
 
 Calculator & FileSharing: Linux, Bash, AWS, SSH, Apache, PHP
+Newssite: PHP, MySQL
 

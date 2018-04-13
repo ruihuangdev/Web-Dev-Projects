@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Calculator with JS</title>
+    <script type='text/javascript'>
+        function Calculator(){
+            var calc = function(){
+                sign = document.getElementsByName('operator');
+                firstnum = document.getElementsByName('firstnumber');
+                secondnum = document.getElementsByName ('secondnumber');
+                result = document.getElementByName('result');
+                if (sign.checked= "Add"){
+                    result = firstnum+secondnum;
+                }
+                else if(sign.checked="Minus"){
+                    result=firstnum-secondnum;
+                }
+                else if(sign.checked="Mutiply"){
+                    result=firstnum*secondnum;
+                }
+                else if(sign.checked="Divide"){
+                    result=firstnum/secondnum;
+                }
+            }
+        }
+    </script>
+</head>
+<body style='text-align: center'>
+        First Value: <input type='number' name ='firstnumber'><br>
+        <p>Choose operator:</p>
+        + <input type = 'radio' name ='operator' value = 'Add' checked ><br>
+        _ <input type = 'radio' name = 'operator' value = 'Minus'><br>
+        * <input type = 'radio'name = 'operator' value ='Multiply'><br>
+        / <input type = 'radio' name = 'operator' value = 'Divide'><br>
+        Second Value: <input type='number' name = 'secondnumber'><br><br>
+        <input type="submit">
+        <input type="reset">
+        <br>
+        <br>
+        The result is: <p name='result' ></p>
+    
+</body>
+</html>
