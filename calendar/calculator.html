@@ -1,61 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <title>Calculator</title>
 </head>
+
 <body>
-    <div class="display">
-        <div class="display-area">
-            <p class="output"></p>
+    <div class="caculator">
+        <div class="display">
+            <div id="display-area">
+                <p class="output">{{number}}</p>
+            </div>
+        </div>
+        <div class="buttons">
+            <div class="button special zero">
+                <p>AC</p>
+            </div>
+            <div class="button special neg">
+                <p>+/-</p>
+            </div>
+            <div class="button special per">
+                <p>%</p>
+            </div>
+            <div class="button operation div">
+                <p>/</p>
+            </div>
+            <div class="button 7">
+                <p>7</p>
+            </div>
+            <div class="button 8">
+                <p>8</p>
+            </div>
+            <div class="button 9">
+                <p>9</p>
+            </div>
+            <div class="button operation mul">
+                <p>x</p>
+            </div>
+            <div class="button 4">
+                <p>4</p>
+            </div>
+            <div class="button 5">
+                <p>5</p>
+            </div>
+            <div class="button 6">
+                <p>6</p>
+            </div>
+            <div class="button operation min">
+                <p>-</p>
+            </div>
+            <div class="button 1">
+                <p>1</p>
+            </div>
+            <div class="button 2">
+                <p>2</p>
+            </div>
+            <div class="button 3">
+                <p>3</p>
+            </div>
+            <div class="button operation plus">
+                <p>+</p>
+            </div>
+            <div class="button 0 double">
+                <p>0</p>
+            </div>
+            <div class="button .">
+                <p>.</p>
+            </div>
+            <div class="button operation equal">
+                <p>=</p>
+            </div>
         </div>
     </div>
-    <div class="buttons">
-        <div class="button special zero"><p>AC</p></div>
-        <div class="button special neg"><p>+/-</p></div>
-        <div class="button special per"><p>%</p></div>
-        <div class="button operation div"><p>/</p></div>
-        <div class="button 7"><p>7</p></div>
-        <div class="button 8"><p>8</p></div>
-        <div class="button 9"><p>9</p></div>
-        <div class="button operation mul"><p>x</p></div>
-        <div class="button 4"><p>4</p></div>
-        <div class="button 5"><p>5</p></div>
-        <div class="button 6"><p>6</p></div>
-        <div class="button operation min"><p>-</p></div>
-        <div class="button 1"><p>1</p></div>
-        <div class="button 2"><p>2</p></div>
-        <div class="button 3"><p>3</p></div>
-        <div class="button operation plus"><p>+</p></div>
-        <div class="button 0 double"><p>0</p></div>
-        <div class="button ."><p>.</p></div>
-        <div class="button operation equal"><p>=</p></div>
-    </div>    
 </body>
-    
+
 <style>
-    .display{
+    .display {
         background-color: #333;
         width: 45%;
         padding: 54px 20px 0 20px;
         position: relative;
         margin: 0 auto;
     }
-    .display-area{
+
+    #display-area {
         margin: 40px 20px 0 20px;
         text-align: right;
         background-color: #333;
         min-height: 40px;
     }
-    .output{
+
+    .output {
         font-size: 54px;
         line-height: 40px;
         color: white;
         margin: 0;
     }
-    .buttons{
+
+    .buttons {
         display: grid;
         grid-template-columns: auto auto auto auto;
         background-color: #333;
@@ -64,7 +110,8 @@
         position: relative;
         margin: 0 auto;
     }
-    .button{
+
+    .button {
         height: 50px;
         width: 50px;
         margin: 10px;
@@ -73,30 +120,33 @@
         background-color: grey;
         cursor: pointer;
     }
-    .button.special{
+
+    .button.special {
         background-color: lightgrey;
     }
-    .button.operation{
+
+    .button.operation {
         background-color: orange;
     }
-    .button.special p{
+
+    .button.special p {
         color: black;
     }
-    .double{
-        grid-column:span 2;
+
+    .double {
+        grid-column: span 2;
         width: auto;
-        border-radius:25px;
+        border-radius: 25px;
         text-align: left;
         padding-left: 20px;
     }
-    .button p{
+
+    .button p {
         color: white;
         font-size: 16px;
         font-weight: 500;
     }
 </style>
-<script>
+<script src="main.js"></script>
 
-
-</script>
 </html>
