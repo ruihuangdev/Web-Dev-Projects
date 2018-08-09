@@ -6,13 +6,17 @@ Recommended by many of my peers at WashU, I decided to follow the course materia
 List of topics involved:
 
 FileSharing: Linux, Bash, AWS, SSH, Apache, PHP
+
 In this project, Linux user and permissions gave me a lot of trouble
 
 RUIddit: PHP, MySQL 
+
 My first full stack web app. Took me a week to get things right.
 
 Regex: Python, Regular Expressions 
+
 Ongoing but probably won't get to it. Learned regex through other mediums.
 
 Calendar: CSS Grid, CSS Flexbox, Javascript, Vue.js
+
 Took a break during this project to focus on my job. When I come back to this, I shifted my focus on learning better front-end practices and technologies. Decided to incorporate Vue into this project.
