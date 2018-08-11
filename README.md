@@ -20,7 +20,7 @@ My first full stack web app. Took me a week to get things right.
 
 **Regex**: Python, Regular Expressions 
 
-Ongoing but probably won't get to it. Learned regex through other mediums.
+Ongoing but probably won't get to it. Learned regex through other projects.
 
 ---
 
