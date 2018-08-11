@@ -20,7 +20,7 @@ footer {
   padding: 10px;
 }
 p {
-  color: limegreen;
+  color: #4dd0e1;
   text-align: center;
 }
 </style>

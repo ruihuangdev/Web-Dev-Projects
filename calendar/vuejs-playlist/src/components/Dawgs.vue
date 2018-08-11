@@ -11,17 +11,15 @@
 
 <script>
 export default {
+  props: {
+    dawgs: {
+      type: Array,
+      required: true
+    }
+  },
+  //validation methods
   data() {
-    return {
-      dawgs: [
-        { name: "Jason", speciality: "Piper", show: false },
-        { name: "Mochi", speciality: "Loaf", show: false },
-        { name: "Tripp", speciality: "Energize", show: false },
-        { name: "Sadie", speciality: "Chill", show: false },
-        { name: "Hank", speciality: "Furry", show: false },
-        { name: "Nova", speciality: "Rua", show: false }
-      ]
-    };
+    return {};
   }
 };
 </script>

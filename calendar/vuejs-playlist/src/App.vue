@@ -1,7 +1,7 @@
 <template>
   <div>
     <app-header></app-header>
-    <app-dawgs></app-dawgs>
+    <app-dawgs v-bind:dawgs="dawgs"></app-dawgs>
     <app-footer></app-footer>
   </div>
 </template>
@@ -19,7 +19,15 @@ export default {
   },
   data() {
     return {
-      title: "My App"
+      title: "My App",
+      dawgs: [
+        { name: "Jason", speciality: "Piper", show: false },
+        { name: "Mochi", speciality: "Loaf", show: false },
+        { name: "Tripp", speciality: "Energize", show: false },
+        { name: "Sadie", speciality: "Chill", show: false },
+        { name: "Hank", speciality: "Furry", show: false },
+        { name: "Nova", speciality: "Rua", show: false }
+      ]
     };
   }
 };
