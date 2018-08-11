@@ -1,8 +1,8 @@
 <template>
   <div>
-    <app-header></app-header>
+    <app-header v-bind:title="title" v-on:changeTitle="updateTitle($event)"></app-header>
     <app-dawgs v-bind:dawgs="dawgs"></app-dawgs>
-    <app-footer></app-footer>
+    <app-footer v-bind:title="title"></app-footer>
   </div>
 </template>
 
@@ -19,7 +19,6 @@ export default {
   },
   data() {
     return {
-      title: "My App",
       dawgs: [
         { name: "Jason", speciality: "Piper", show: false },
         { name: "Mochi", speciality: "Loaf", show: false },
@@ -27,8 +26,14 @@ export default {
         { name: "Sadie", speciality: "Chill", show: false },
         { name: "Hank", speciality: "Furry", show: false },
         { name: "Nova", speciality: "Rua", show: false }
-      ]
+      ],
+      title: "Vue Dawgs"
     };
+  },
+  methods: {
+    updateTitle: function(newTitle) {
+      this.title = newTitle;
+    }
   }
 };
 </script>

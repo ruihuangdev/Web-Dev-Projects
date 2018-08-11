@@ -6,6 +6,7 @@
 				<h3 v-show="dawg.show">{{dawg.speciality}}</h3>
 			</li>
 		</ul>
+    <button v-on:click="deleteDawg">Delete dawg</button>
 	</div>
 </template>
 
@@ -20,6 +21,11 @@ export default {
   //validation methods
   data() {
     return {};
+  },
+  methods: {
+    deleteDawg: function() {
+      this.dawgs.pop();
+    }
   }
 };
 </script>

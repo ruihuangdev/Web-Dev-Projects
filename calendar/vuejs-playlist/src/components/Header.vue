@@ -1,16 +1,28 @@
 <template>
 	<header>
-		<h1>{{title}}</h1>
+		<h1 v-on:click="changeTitle">{{title}}</h1>
 	</header>
 
 </template>
 
 <script>
+import { bus } from "../main.js";
 export default {
+  props: {
+    title: {
+      type: String
+    }
+  },
   data() {
-    return {
-      title: "My App"
-    };
+    return {};
+  },
+  methods: {
+    changeTitle: function() {
+      this.title = "Vue Dawgz";
+      //edit title directly in here to allow header component to listen to it
+      bus.$emit("titleChanged", "Vue Dawgz");
+      //event bus for handling events in other components
+    }
   }
 };
 </script>
