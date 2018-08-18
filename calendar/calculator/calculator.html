@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Calculator</title>
+</head>
+
+<body>
+	<div class="calc">
+		<div>
+			<label>First Number</label>
+			<input id="firstNumber" type="number">
+		</div>
+		<div id="operators">
+			<input name="operator" type="radio" value="add" />+
+			<input name="operator" type="radio" value="minus" />-
+			<input name="operator" type="radio" value="multiply" />x
+			<input name="operator" type="radio" value="divide" />&divide;
+		</div>
+
+		<div>
+			<label for="">Second Number</label>
+			<input id="secondNumber" type="number">
+		</div>
+	</div>
+	<div class="display">
+		<p>The result is: </p>
+		<p id="outcome"></p>
+	</div>
+
+
+</body>
+
+<style>
+	.calc,
+	.display {
+		width: 70%;
+		margin: 0 auto;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-around;
+	}
+
+	.display {
+		justify-content: center;
+	}
+
+
+	.calc div {
+		padding: 20px;
+	}
+</style>
+
+<script>
+	document.getElementById('firstNumber').addEventListener("keyup", calc);
+	document.getElementById('secondNumber').addEventListener("keyup", calc);
+	document.getElementById('operators').addEventListener("click", calc);
+
+	function calc() {
+		var firstNumber = document.getElementById('firstNumber').value;
+		var secondNumber = document.getElementById('secondNumber').value;
+		var operators = document.getElementsByName('operator');
+		for (var i = 0; i < operators.length; i++) {
+			if (operators[i].checked) {
+				var operator = operators[i].value;
+			}
+		}
+		console.log(operator);
+		if (operator === "add") {
+			var outcome = parseInt(firstNumber) + parseInt(secondNumber);
+		}
+		else if (operator === "minus") {
+			var outcome = parseInt(firstNumber) - parseInt(secondNumber);
+		}
+		else if (operator === "multiply") {
+			var outcome = parseInt(firstNumber) * parseInt(secondNumber);
+		}
+		else if (operator === "divide") {
+			var outcome = parseInt(firstNumber) / parseInt(secondNumber);
+		}
+		document.getElementById('outcome').innerHTML = outcome;
+	}
+
+</script>
+
+</html>
