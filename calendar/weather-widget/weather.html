@@ -5,13 +5,76 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+  <title>Weather Widget</title>
 </head>
 
 <body>
-
+  <div class="weather" id="weatherWidget">
+    <div class="weather-loc"></div>
+    <div class="weather-humidity"></div>
+    <div class="weather-temp"></div>
+    <img class="weather-tomorrow" />
+    <img class="weather-dayaftertomorrow" />
+  </div>
 </body>
+<style>
+  .weather {
+    width: 200px;
+    border: 1px solid black;
+    padding: 5px;
+    border-radius: 10px;
+    text-align: center;
+  }
+
+  .weather-loc {
+    font-size: 18px;
+  }
+
+  .weather-temp {
+    float: left;
+  }
+
+  .weather-temp::before {
+    content: 'Currently ';
+  }
+
+  .weather-humidity {
+    float: right;
+  }
+
+  .weather-humidity::before {
+    content: 'Humidity: ';
+  }
+
+  .weather-humidity::after {
+    content: '%';
+  }
+</style>
 <script>
+  function fetchWeather() {
+    const weatherURL = "https://classes.engineering.wustl.edu/cse330/content/weather_json.php";
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function () {
+      if (this.readyState == 4 && this.status == 200) {
+        var weatherArray = JSON.parse(this.responseText);
+        var location = weatherArray.location;
+        var humidity = weatherArray.atmosphere.humidity;
+        var currentTemp = weatherArray.current.temp;
+        var tomorrowForecast = weatherArray.tomorrow.code;
+        var dayAfterForecast = weatherArray.dayafter.code;
+        var weatherWidget = document.getElementById('weatherWidget').children;
+        weatherWidget[0].innerHTML = '<p><strong>' + location.city + '</strong> ' + location.state + '</p>';
+        weatherWidget[1].innerHTML = humidity;
+        weatherWidget[2].innerHTML = currentTemp;
+        weatherWidget[3].src = 'http://us.yimg.com/i/us/nws/weather/gr/' + tomorrowForecast + 'ds.png';
+        weatherWidget[4].src = 'http://us.yimg.com/i/us/nws/weather/gr/' + dayAfterForecast + 'ds.png';
+      }
+    };
+    xmlhttp.open("GET", weatherURL, true);
+    xmlhttp.send();
+  }
+  document.addEventListener("DOMContentLoaded", fetchWeather, false);
+
 </script>
 
 </html>
