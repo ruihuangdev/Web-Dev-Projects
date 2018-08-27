@@ -16,6 +16,9 @@
     <img class="weather-tomorrow" />
     <img class="weather-dayaftertomorrow" />
   </div>
+  <div>
+    <button onclick="fetchWeather()">New Weather</button>
+  </div>
 </body>
 <style>
   .weather {
@@ -57,6 +60,7 @@
     xmlhttp.onreadystatechange = function () {
       if (this.readyState == 4 && this.status == 200) {
         var weatherArray = JSON.parse(this.responseText);
+        console.log(weatherArray);
         var location = weatherArray.location;
         var humidity = weatherArray.atmosphere.humidity;
         var currentTemp = weatherArray.current.temp;
