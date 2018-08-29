@@ -2,28 +2,45 @@
 
 A compilation of projects following WashU's CSE330 'Rapid Prototype Development and Creative Programming' class. 
 
-Recommended by many of my peers at WashU, I decided to follow the course material and complete every project covered in the class. Started in February 2018, I'm using this repository both as the version controller as well as keeping track of my growth as a web developer. 
+Recommended by many of my peers at WashU, I decided to follow the course material and complete every project covered in the class. 
+Started in February 2018, this repository is used as the version control as well as recordings of my growth as a web developer. 
 
 List of topics involved:
 
-**FileSharing**: Linux, Bash, AWS, SSH, Apache, PHP
-
-In this project, Linux user and permissions gave me a lot of trouble
-
----
-
-**RUIddit**: PHP, MySQL 
-
-My first full stack web app. Took me a week to get things right.
+Module 1:
+skipped. HTML and CSS stuff
 
 ---
 
+Module 2:
+**FileSharing**: Linux, Bash, AWS(EC2), SSH, Apache, PHP
+
+In this project, Linux 'chown' and 'chmod' commands gave me a lot of trouble.
+Natrually, just like any other rookie dev, I locked myself out of the server at one point.
+
+---
+
+Module 3:
+**RUIddit**: PHP, MySQL, Web App Security (SQL Injection) 
+
+My first full stack web app.
+It was significantly harder than I imagined.
+It was the first milestone in my web dev learning journey.
+(The CSS is hideous and I want to keep it that way)
+
+---
+
+Module 4:
 **Regex**: Python, Regular Expressions 
 
-Ongoing but probably won't get to it. Learned regex through other projects.
+Ongoing but probably won't get to it. 
+I learned Python and regex through other projects.
 
 ---
 
-**Calendar**: CSS Grid, CSS Flexbox, Javascript, Vue.js
+Module 5:
+**Calendar**: CSS Grid, CSS Flexbox, Javascript, Ajax, Vue.js, Laravel
 
-Took a break during this project to focus on my job. When I come back to this, I shifted my focus on learning better front-end practices and technologies. Decided to incorporate Vue into this project.
+Took a break during this project to focus on my job. 
+I shifted my focus on learning better front-end practices and technologies.
+For Calendar, I want to complete the assignment using Laravel + Vue.
