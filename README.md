@@ -49,4 +49,4 @@ CSS Grid, CSS Flexbox, Javascript, Ajax, Vue.js, Laravel
 Took a break during this project to focus on my job.
 I shifted my focus on learning better front-end practices and technologies.
 For the calculator portion, I threw in a calculator built with Vue.js.
-For Calendar, I want to complete the assignment using Laravel + Vue.
+For Calendar, I want to complete the assignment using Laravel as the backend and Vue as the front.
