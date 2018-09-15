@@ -11,8 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome', [
-        'name' => 'World'
-    ]);
+Route::get('/events', function () {
+	$events = DB::table('events')->get();
+	return view('events.index', compact('events'));
+});
+
+Route::get('/events/{id}', function ($id) {
+	$event = DB::table('events')->find($id);
+	return view('events.show', compact('event'));
 });
