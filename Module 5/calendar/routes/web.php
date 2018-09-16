@@ -15,10 +15,6 @@ Route::get('/', function () {
 	return view('welcome');
 });
 
-Route::get('/events', function () {
-	$events = App\Event::all();
-	return view('events.index', compact('events'));
-});
 
 Route::get('/events/{id}', function ($id) {
 	$event = App\Event::find($id);
