@@ -7,12 +7,6 @@
   <title>uCal</title>
 </head>
 <body>
-	<ul>
-		@foreach($events as $event)
-			<a href="/tasks/{{$event->id}}">
-				<li>{{$event->event_name}}</li>
-			</a>
-		@endforeach
-	</ul>
+	<h1>uCalc</h1>
 </body>
 </html>

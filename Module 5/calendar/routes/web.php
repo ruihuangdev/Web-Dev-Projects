@@ -11,12 +11,16 @@
 |
 */
 
+Route::get('/', function () {
+	return view('welcome');
+});
+
 Route::get('/events', function () {
-	$events = DB::table('events')->get();
+	$events = App\Event::all();
 	return view('events.index', compact('events'));
 });
 
 Route::get('/events/{id}', function ($id) {
-	$event = DB::table('events')->find($id);
+	$event = App\Event::find($id);
 	return view('events.show', compact('event'));
 });
