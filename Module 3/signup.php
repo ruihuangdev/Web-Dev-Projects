@@ -3,7 +3,7 @@
 ?>
 
 <section class="main-container">
-    <div classs = "main-wrapper">
+    <div class = "main-wrapper">
         <h2>Sign Up</h2>
         <form action="includes/signup.inc.php" method="POST" class="signup-form">
             <input type="text" name="first" placeholder="Firstname">
