@@ -5,7 +5,7 @@
 <section class="main-container">
   <div class = "main-wrapper">
 		<?php
-			require 'database.php';
+			require 'includes/database.php';
 		?>
 			<div id="display-options">
 				<form action="<?php echo htmlentities($_SERVER['PHP_SELF']);?>" method="post">
