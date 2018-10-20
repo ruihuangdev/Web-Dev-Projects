@@ -7,46 +7,65 @@ Started in February 2018, this repository is used as the version control as well
 
 List of topics involved:
 
-Module 1
+## Module 1
 
 skipped. HTML and CSS stuff
 
 ---
 
-**Module 2 (FileSharing)**
+## Module 2 (FileSharing)
 
-Linux, AWS(EC2), SSH, Apache, PHP
+- Linux
+- AWS(EC2)
+- SSH
+- Apache
+- PHP
 
 In this project, Linux 'chown' and 'chmod' commands gave me a lot of trouble.
 Naturally, just like any other rookie dev, I locked myself out of the server at one point.
 
 ---
 
-**Module 3 (RUIddit)**
+## Module 3 (RUIddit)
 
-PHP, MySQL, Web App Security (SQL Injection)
+- PHP
+- MySQL
+- Web App Security (SQL Injection)
 
 My first full stack web app.
 It was significantly harder than I imagined.
 It was the first milestone in my web dev learning journey.
-(The CSS is hideous and I want to keep it that way)
+(CSS left a lot to desire but I want to keep it as is to see where I came from)
 
 ---
 
-**Module 4 (Regex)**
+## Module 4 (Regex)
 
-Python, Regular Expressions
+- Python
+- Regular Expressions
 
 Ongoing but probably won't get to it.
 I learned Python and regex through other projects.
 
 ---
 
-**Module 5 (Calendar)**
+## Module 5 (Calendar)
 
-CSS Grid, CSS Flexbox, Javascript, Ajax, Vue.js, Laravel
+- CSS Grid
+- CSS Flexbox
+- Javascript 
+- Ajax
+- Vue.js
 
 Took a break during this project to focus on my job.
 I shifted my focus on learning better front-end practices and technologies.
-For the calculator portion, I threw in a calculator built with Vue.js.
-For Calendar, I want to complete the assignment using Laravel as the backend and Vue as the front.
+For the calculator portion, I also threw in a calculator built with Vue.
+
+For the main project, original plan is to build it using Laravel and Vue.
+Realizing the time it will take me to learn the proper development of a SPA using Laravel and Vue, I decided against it and plan to do this framework-less.
+
+---
+
+## Module 6 
+
+Coming soon!
