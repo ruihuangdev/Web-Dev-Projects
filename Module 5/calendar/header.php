@@ -21,10 +21,23 @@ session_start();
   <nav class="blue">
     <div class="nav-wrapper container">
       <a href="index.php" class="brand-logo">Calendar</a>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="#" target="_blank" rel="noopener noreferrer">Sign in</a></li>
-        <li><a href="#" target="_blank" rel="noopener noreferrer">Sign up</a></li>
-      </ul>
+      <?php
+        if(isset($_SESSION['u_id'])){
+          echo '
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="logout.php" rel="noopener noreferrer">Log out</a></li>
+          </ul>
+          ';
+        }
+        else{
+          echo'
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="signin.php" target="_blank" rel="noopener noreferrer">Sign in</a></li>
+            <li><a href="signup.php" target="_blank" rel="noopener noreferrer">Sign up</a></li>
+          </ul>
+          ';
+        }
+        ?>
     </div>
   </nav>
 </header>

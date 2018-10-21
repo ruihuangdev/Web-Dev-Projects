@@ -1,5 +1,5 @@
 <?php
-include_once 'header.php';
+	include_once 'header.php';
 ?>
 
 <section class="section">
@@ -11,11 +11,13 @@ include_once 'header.php';
 			<input type="text" name="email" placeholder="E-mail">
 			<input type="text" name="uid" placeholder="Username">
 			<input type="password" name="pwd" placeholder="Password">
-			<button type="submit" name="submit">Sign Up</button>
+			<button type="submit" class="btn waves-effect waves-light blue" name="submit">Sign Up
+				<i class="material-icons right">send</i>
+			</button>
 		</form>
 	</div>
 </section>
 
 <?php
-include_once 'footer.php';
+	include_once 'footer.php';
 ?>
