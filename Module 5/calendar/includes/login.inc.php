@@ -8,7 +8,7 @@ if(isset($_POST['submit'])){
   //error handlers
   //check if inputs are empty
   if(empty($uid)||empty($pwd)){
-    header("Location: ../index.php?login=empty");
+    echo "please make sure to fill in user id or password!";
     exit();
   }
   else{
@@ -23,7 +23,7 @@ if(isset($_POST['submit'])){
     $stmt->close();
 
     if ($cnt <1){
-      header("Location: ../index.php?login=error");
+      echo "error";
       exit();
     }
     else{
@@ -31,13 +31,13 @@ if(isset($_POST['submit'])){
         //De-hashing the password
         $hashedPwdCheck = password_verify($pwd, $pwd_hash);
         if($hashedPwdCheck==FALSE){
-          header("Location: ../index.php?login=error");
+          echo "error";
           exit();
         }
         elseif($hashedPwdCheck == true){
           //login the user here
+          echo ("welcome back, ". $user_id."!");
           $_SESSION['u_id']=$user_id;
-          header("location: ../index.php?login=success");
           exit();
         }
       }
@@ -45,6 +45,6 @@ if(isset($_POST['submit'])){
   }
 }
 else{
-  header("Location: ../index.php?login=error");
+  echo "error";
   exit();
 }

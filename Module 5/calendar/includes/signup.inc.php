@@ -38,7 +38,7 @@ if(isset($_POST['submit'])){
         }
         else{
           ///Hashing the password
-          $hashedPWD = password_hash($pwd, PASSWORD_DEFAULT);
+          $hashedPWD = password_hash($pwd, PASSWORD_BCRYPT);
 
           $stmt = $mysqli->prepare("INSERT INTO users (user_first_name, user_last_name, user_email, user_uid, user_pwd) VALUES (?,?,?,?,?)");
           if(!$stmt){
