@@ -8,7 +8,7 @@
 		<div class="row">
 			<div class="col s12 m12 l6 center">
 				<h5>Sign In</h5>
-				<form method="POST" id="signin-form">
+				<form id="signin-form">
 					<input type="text" name="uid" placeholder="Username">
 					<input type="password" name="pwd" placeholder="Password">
 					<input type="hidden" name="submit">
@@ -19,7 +19,7 @@
 			</div>
 			<div class="col s12 m12 l6 center">
 				<h5>Sign Up</h5>
-				<form method="POST" id="signup-form">
+				<form id="signup-form">
 					<input type="text" name="first" placeholder="Firstname">
 					<input type="text" name="last" placeholder="Lastname">
 					<input type="text" name="email" placeholder="E-mail">

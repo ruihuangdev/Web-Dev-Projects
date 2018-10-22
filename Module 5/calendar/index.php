@@ -1,13 +1,10 @@
 <?php
-  require 'header.php';
-?>
-<?php
-	if(isset($_SESSION['u_id'])){
-		require 'signout.php';
-	}
-	else{
-		require 'useractions.php';
-	}
+	require 'header.php';
+
+	require 'signout.php';
+
+	require 'useractions.php';
+
 ?>
 
 <section class="section">

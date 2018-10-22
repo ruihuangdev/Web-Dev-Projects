@@ -20,6 +20,9 @@ session_start();
   <nav class="blue">
     <div class="nav-wrapper container">
       <a href="index.php" class="brand-logo">Calendar</a>
+      <ul class="right hide-on-med-and-down">
+        <li id="welcome-message"></li>
+      </ul>
     </div>
   </nav>
 </header>

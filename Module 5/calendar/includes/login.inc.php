@@ -1,14 +1,17 @@
 <?php
-session_start();
+header("Content-Type: application/json");
 
 if(isset($_POST['submit'])){
-  $uid = $_POST['uid'];
-  $pwd = $_POST['pwd'];
+  $uid = htmlentities($_POST['uid']);
+  $pwd = htmlentities($_POST['pwd']);
 
   //error handlers
   //check if inputs are empty
   if(empty($uid)||empty($pwd)){
-    echo "please make sure to fill in user id or password!";
+    echo json_encode(array(
+      "loggedin" => false,
+      "message" => "Empty username or password!",
+    ));
     exit();
   }
   else{
@@ -23,21 +26,32 @@ if(isset($_POST['submit'])){
     $stmt->close();
 
     if ($cnt <1){
-      echo "error";
+      echo json_encode(array(
+        "loggedin" => false,
+        "message" => "User doesn't exist!",
+      ));
       exit();
     }
     else{
       if($cnt==1){
-        //De-hashing the password
-        $hashedPwdCheck = password_verify($pwd, $pwd_hash);
+        $hashedPwdCheck = password_verify($pwd, htmlentities($pwd_hash));
         if($hashedPwdCheck==FALSE){
-          echo "error";
+          echo json_encode(array(
+            "loggedin" => false,
+            "message" => "Incorrect password",
+          ));
           exit();
         }
         elseif($hashedPwdCheck == true){
-          //login the user here
-          echo ("welcome back, ". $user_id."!");
-          $_SESSION['u_id']=$user_id;
+          ini_set("session.cookie_httponly", 1);
+          session_start();
+          $_SESSION['u_id']=htmlentities($user_id);
+          $_SESSION['token'] = htmlentities(bin2hex(openssl_random_pseudo_bytes(32)));
+          echo json_encode(array(
+            "loggedin" => true,
+            "message" => "welcome back, ". $user_id."!",
+            "token" => $_SESSION['token']
+          ));
           exit();
         }
       }
@@ -45,6 +59,9 @@ if(isset($_POST['submit'])){
   }
 }
 else{
-  echo "error";
+  echo json_encode(array(
+    "loggedin" => false,
+    "message" => "Something is wrong!",
+  ));
   exit();
 }
