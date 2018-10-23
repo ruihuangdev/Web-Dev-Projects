@@ -49,6 +49,7 @@ if(isset($_POST['submit'])){
           $_SESSION['token'] = htmlentities(bin2hex(openssl_random_pseudo_bytes(32)));
           echo json_encode(array(
             "loggedin" => true,
+            "username" => $user_id,
             "message" => "welcome back, ". $user_id."!",
             "token" => $_SESSION['token']
           ));

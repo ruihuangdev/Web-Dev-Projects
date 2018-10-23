@@ -1,5 +1,8 @@
 <?php
-    session_start();
-    session_destroy();
-    header("Location: ../index.php");
-    exit();
+	ini_set("session.cookie_httponly", 1);
+  session_start();
+	session_destroy();
+	echo json_encode(array(
+		"loggedout" => true,
+	));
+  exit();
