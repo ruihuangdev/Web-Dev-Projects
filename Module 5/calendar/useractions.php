@@ -25,6 +25,7 @@
 					<input type="text" name="email" placeholder="E-mail">
 					<input type="text" name="uid" placeholder="Username" autocomplete="username">
 					<input type="password" name="pwd" placeholder="Password" autocomplete="current-password">
+					<input type="hidden" name="submit">
 					<button type="submit" id="signup-button" class="btn waves-effect waves-light blue" name="submit">Sign Up
 						<i class="material-icons right">send</i>
 					</button>

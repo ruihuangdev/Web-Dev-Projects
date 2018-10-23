@@ -40,7 +40,7 @@ signOut.addEventListener("submit", e => {
 
 function signOutUser() {
   var XHR = new XMLHttpRequest();
-  var FD = new FormData(signIn);
+  var FD = new FormData();
   XHR.addEventListener("load", () => {
     var responseData = JSON.parse(event.target.responseText);
     if (responseData.loggedout === true) {
@@ -55,5 +55,28 @@ function signOutUser() {
     console.error("Something went wrong");
   });
   XHR.open("POST", "./includes/logout.inc.php");
+  XHR.send(FD);
+}
+
+signUp.addEventListener("submit", e => {
+  e.preventDefault();
+  registerUser();
+});
+
+function registerUser() {
+  var XHR = new XMLHttpRequest();
+  var FD = new FormData(signUp);
+  XHR.addEventListener("load", () => {
+    var responseData = JSON.parse(event.target.responseText);
+    if (responseData.userCreated === true) {
+      alert("Sign up success, you can log in now!");
+    } else {
+      alert(responseData.message);
+    }
+  });
+  XHR.addEventListener("error", () => {
+    console.error("Something went wrong");
+  });
+  XHR.open("POST", "./includes/signup.inc.php");
   XHR.send(FD);
 }

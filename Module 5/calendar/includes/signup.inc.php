@@ -1,4 +1,6 @@
 <?php
+header("Content-Type: application/json");
+
 if(isset($_POST['submit'])){
   $first = $_POST['first'];
   $last =  $_POST['last'];
@@ -9,19 +11,28 @@ if(isset($_POST['submit'])){
   //error handlers
   //check for empty fields
   if(empty($first)||empty($last)||empty($email)||empty($uid)||empty($pwd)){
-    header("Location: ../signup.php?signup=empty");
+    echo json_encode(array(
+      "userCreated" => false,
+      "message" => "Don't leave any field empty!",
+    ));
     exit();
   }
   else{
     //check if input characters are valid
     if(!preg_match("/^[a-zA-Z]*$/", $first)||!preg_match("/^[a-zA-Z]*$/", $last)){
-      header("Location: ../signup.php?signup=invalid");
+      echo json_encode(array(
+        "userCreated" => false,
+        "message" => "Invalid first name/last name",
+      ));
       exit();
     }
     else{
       //check if email is valid
       if (!filter_var($email, FILTER_VALIDATE_EMAIL)){
-        header("Location: ../signup.php?signup=invalidemail");
+        echo json_encode(array(
+          "userCreated" => false,
+          "message" => "Invalid email",
+        ));
         exit();
       }
       else{
@@ -33,7 +44,10 @@ if(isset($_POST['submit'])){
         $stmt->fetch();
         $stmt->close();
         if($dupe > 0){
-          header("Location: ../signup.php?signup=usertaken");
+          echo json_encode(array(
+            "userCreated" => false,
+            "message" => "username exists!",
+          ));
           exit();
         }
         else{
@@ -48,7 +62,10 @@ if(isset($_POST['submit'])){
           $stmt->bind_param('sssss', $first, $last, $email, $uid, $hashedPWD);
           $stmt->execute();
           $stmt->close();
-          header("Location: ../signup.php?signup=success");
+          echo json_encode(array(
+            "userCreated" => true,
+            "message" => "User ".$uid." created!",
+          ));
           exit();
         }
       }
@@ -56,6 +73,9 @@ if(isset($_POST['submit'])){
   }
 }
 else{
-  header("Location: ../signup.php");
+  echo json_encode(array(
+    "userCreated" => false,
+    "message" => "Something went wrong!",
+  ));
   exit();
 }
