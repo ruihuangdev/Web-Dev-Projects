@@ -128,7 +128,22 @@ nextMonth.addEventListener("click", () => {
   updateDate();
 });
 
+const calendar = document.querySelector("#calendar");
+const eachWeekday = calendar.querySelectorAll(".calendar-column");
 function updateDate() {
   displayMonth.innerHTML = Months[currentMonth];
   displayYear.innerHTML = currentYear;
+
+  var thisMonth = new Month(currentYear, currentMonth);
+  var weeks = thisMonth.getWeeks();
+  for (var w in weeks) {
+    var days = weeks[w].getDates();
+    for (var d in days) {
+      eachWeekday[d].children[w].innerHTML = days[d].getDate();
+      if (eachWeekday[d].children[w].innerHTML === "1") {
+        eachWeekday[d].children[w].innerHTML =
+          Months[days[d].getMonth()] + " 1";
+      }
+    }
+  }
 }

@@ -10,3 +10,26 @@
 .currentMonth{
   display: flex;
 }
+.calendar-display{
+  display: flex;
+  flex-direction: row;
+}
+.calendar-column{
+  flex: 7;
+  border-left: 1px solid #333333;
+  border-top: 1px solid #333333;
+}
+.calendar-column:last-child{
+  border-right: 1px solid #333333;
+}
+.calendar-row{
+  height: 200px;
+  border-bottom: 1px solid #333333;
+  padding: 3px 5px;
+}
+.calendar-row.day{
+  padding: 0 5px;
+  border-bottom: none;
+  height: auto;
+  color: grey;
+}
