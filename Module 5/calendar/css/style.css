@@ -13,6 +13,8 @@
 .calendar-display{
   display: flex;
   flex-direction: row;
+  margin-bottom: 40px;
+  margin-top: 20px;
 }
 .calendar-column{
   flex: 7;

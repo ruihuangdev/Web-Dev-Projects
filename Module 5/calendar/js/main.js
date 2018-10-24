@@ -121,20 +121,25 @@ prevMonth.addEventListener("click", () => {
 });
 nextMonth.addEventListener("click", () => {
   currentMonth += 1;
-  if (currentMonth >= 12) {
+  if (currentMonth > 11) {
     currentMonth = 0;
     currentYear += 1;
   }
   updateDate();
 });
 
+// This part is pretty straight forward, increase/decrease month and year
+
 const calendar = document.querySelector("#calendar");
 const eachWeekday = calendar.querySelectorAll(".calendar-column");
 function updateDate() {
   displayMonth.innerHTML = Months[currentMonth];
   displayYear.innerHTML = currentYear;
+  // update the display month of the calendar
 
   var thisMonth = new Month(currentYear, currentMonth);
+  //Use the given js lib provided by the class
+
   var weeks = thisMonth.getWeeks();
   for (var w in weeks) {
     var days = weeks[w].getDates();
@@ -142,8 +147,16 @@ function updateDate() {
       eachWeekday[d].children[w].innerHTML = days[d].getDate();
       if (eachWeekday[d].children[w].innerHTML === "1") {
         eachWeekday[d].children[w].innerHTML =
-          Months[days[d].getMonth()] + " 1";
+          Months[days[d].getMonth()].substring(0, 3) + " 1";
       }
+      /*
+      use a nested loop to update each element in the calendar div
+      if the date happens to be 1, update the innerHTML to have the first 3 chars of the month
+
+      This feels hacky and may potentially be bad for adding appointments.
+      Will have to see how that's implemented.
+      For now, there is room to refactor.
+      */
     }
   }
 }
