@@ -1,4 +1,10 @@
-<?php ?>
+<?php
+	/*
+	This section has two forms
+	One for signing in and one for signing up
+	Might do some conditional display in future updates, but low priority item
+	*/
+?>
 <section class="section" id="userActions">
 	<div class="container">
 		<div class="row center">
@@ -35,5 +41,4 @@
 	</div>
 </section>
 
-<?php
 

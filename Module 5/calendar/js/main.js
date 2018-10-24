@@ -47,6 +47,7 @@ function signOutUser() {
       alert("Logout success!");
       userActions.setAttribute("style", "display: block");
       userLogout.setAttribute("style", "display: none");
+      signedInAs.innerHTML = "You are currently logged in as ";
     } else {
       alert("Something went wrong");
     }
@@ -79,4 +80,55 @@ function registerUser() {
   });
   XHR.open("POST", "./includes/signup.inc.php");
   XHR.send(FD);
+}
+
+//calendar
+
+const displayMonth = document.querySelector("#month");
+const displayYear = document.querySelector("#year");
+const currentDate = new Date();
+let currentMonth = currentDate.getMonth();
+let currentYear = currentDate.getFullYear();
+const Months = [
+  "January",
+  "Feburary",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December"
+];
+
+window.onload = function() {
+  updateDate();
+};
+
+const prevMonth = document.querySelector("#prevMonth");
+const nextMonth = document.querySelector("#nextMonth");
+
+prevMonth.addEventListener("click", () => {
+  currentMonth -= 1;
+  if (currentMonth < 0) {
+    currentMonth = 11;
+    currentYear -= 1;
+  }
+  updateDate();
+});
+nextMonth.addEventListener("click", () => {
+  currentMonth += 1;
+  if (currentMonth >= 12) {
+    currentMonth = 0;
+    currentYear += 1;
+  }
+  updateDate();
+});
+
+function updateDate() {
+  displayMonth.innerHTML = Months[currentMonth];
+  displayYear.innerHTML = currentYear;
 }

@@ -5,16 +5,7 @@
 
 	require 'useractions.php';
 
-?>
+	require 'calendar.php';
 
-<section class="section">
-  <div class="container">
-		<?php
-			require 'includes/database.php';
-		?>
-	</div>
-</section>
-
-<?php
   require 'footer.php';
 ?>

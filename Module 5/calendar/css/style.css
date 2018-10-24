@@ -1,0 +1,12 @@
+.date-container{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.date-container a{
+  cursor: pointer;
+}
+
+.currentMonth{
+  display: flex;
+}
