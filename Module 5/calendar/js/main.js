@@ -177,3 +177,11 @@ function chooseDate() {
   console.log(Months[currentMonth] + " " + this.innerHTML);
   // choose the Date, update this value to the add event form
 }
+
+/* 
+TODO:
+1. Welcome message doesn't go away after signed out
+2. Hook up add event form with db
+3. make add event form a pop up
+4. display events conditionally for signed in users
+*/
