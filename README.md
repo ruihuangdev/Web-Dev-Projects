@@ -11,8 +11,6 @@ List of topics involved:
 
 skipped. HTML and CSS stuff
 
-
-
 ## Module 2 (FileSharing)
 
 - Linux
@@ -23,8 +21,6 @@ skipped. HTML and CSS stuff
 
 In this project, Linux 'chown' and 'chmod' commands gave me a lot of trouble.
 Naturally, just like any other rookie dev, I locked myself out of the server at one point.
-
-
 
 ## Module 3 (RUIddit)
 
@@ -37,8 +33,6 @@ It was significantly harder than I imagined.
 It was the first milestone in my web dev learning journey.
 (CSS left a lot to desire but I want to keep it as is to see where I came from)
 
-
-
 ## Module 4 (Regex)
 
 - Python
@@ -47,13 +41,11 @@ It was the first milestone in my web dev learning journey.
 Ongoing but probably won't get to it.
 I learned Python and regex through other projects.
 
-
-
 ## Module 5 (Calendar)
 
 - CSS Grid
 - CSS Flexbox
-- Javascript 
+- Javascript
 - Ajax
 - Vue.js
 
@@ -62,10 +54,8 @@ I shifted my focus on learning better front-end practices and technologies.
 For the calculator portion, I also threw in a calculator built with Vue.
 
 For the main project, original plan is to build it using Laravel and Vue.
-Realizing the time it will take me to learn the proper development of a SPA using Laravel and Vue, I decided against it and plan to do this framework-less.
+Realizing the time it takes for me to learn the proper development of a SPA using Laravel and Vue, I decided against that idea and did this framework-less.
 
-
-
-## Module 6 
+## Module 6
 
 Coming soon!

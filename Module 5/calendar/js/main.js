@@ -12,10 +12,10 @@ signIn.addEventListener("submit", e => {
 });
 
 function signInUser() {
-  var XHR = new XMLHttpRequest();
-  var FD = new FormData(signIn);
+  let XHR = new XMLHttpRequest();
+  let FD = new FormData(signIn);
   XHR.addEventListener("load", () => {
-    var responseData = JSON.parse(event.target.responseText);
+    let responseData = JSON.parse(event.target.responseText);
     if (responseData.loggedin === true) {
       alert("Login success!");
       welcome.innerHTML = responseData.message;
@@ -39,10 +39,10 @@ signOut.addEventListener("submit", e => {
 });
 
 function signOutUser() {
-  var XHR = new XMLHttpRequest();
-  var FD = new FormData();
+  let XHR = new XMLHttpRequest();
+  let FD = new FormData();
   XHR.addEventListener("load", () => {
-    var responseData = JSON.parse(event.target.responseText);
+    let responseData = JSON.parse(event.target.responseText);
     if (responseData.loggedout === true) {
       alert("Logout success!");
       userActions.setAttribute("style", "display: block");
@@ -65,10 +65,10 @@ signUp.addEventListener("submit", e => {
 });
 
 function registerUser() {
-  var XHR = new XMLHttpRequest();
-  var FD = new FormData(signUp);
+  let XHR = new XMLHttpRequest();
+  let FD = new FormData(signUp);
   XHR.addEventListener("load", () => {
-    var responseData = JSON.parse(event.target.responseText);
+    let responseData = JSON.parse(event.target.responseText);
     if (responseData.userCreated === true) {
       alert("Sign up success, you can log in now!");
     } else {
@@ -137,18 +137,30 @@ function updateDate() {
   displayYear.innerHTML = currentYear;
   // update the display month of the calendar
 
-  var thisMonth = new Month(currentYear, currentMonth);
+  let thisMonth = new Month(currentYear, currentMonth);
   //Use the given js lib provided by the class
 
-  var weeks = thisMonth.getWeeks();
-  for (var w in weeks) {
-    var days = weeks[w].getDates();
-    for (var d in days) {
+  let weeks = thisMonth.getWeeks();
+  for (let w in weeks) {
+    let days = weeks[w].getDates();
+    for (let d in days) {
+      eachWeekday[d].children[w].classList.remove("current-month");
+
       eachWeekday[d].children[w].innerHTML = days[d].getDate();
+      if (days[d].getMonth() === currentMonth) {
+        eachWeekday[d].children[w].classList.add("current-month");
+      }
       if (eachWeekday[d].children[w].innerHTML === "1") {
         eachWeekday[d].children[w].innerHTML =
           Months[days[d].getMonth()].substring(0, 3) + " 1";
       }
+      calendar
+        .querySelectorAll(".calendar-row")
+        .forEach(day => day.removeEventListener("click", chooseDate));
+      calendar
+        .querySelectorAll(".calendar-row.current-month")
+        .forEach(day => day.addEventListener("click", chooseDate));
+
       /*
       use a nested loop to update each element in the calendar div
       if the date happens to be 1, update the innerHTML to have the first 3 chars of the month
@@ -159,4 +171,9 @@ function updateDate() {
       */
     }
   }
+}
+
+function chooseDate() {
+  console.log(Months[currentMonth] + " " + this.innerHTML);
+  // choose the Date, update this value to the add event form
 }

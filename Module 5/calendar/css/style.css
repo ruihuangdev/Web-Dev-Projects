@@ -9,12 +9,14 @@
 
 .currentMonth{
   display: flex;
+  width: 150px;
+  justify-content: center;
 }
 .calendar-display{
   display: flex;
   flex-direction: row;
-  margin-bottom: 40px;
-  margin-top: 20px;
+  margin: 20px auto 40px auto;
+  width: 90%;
 }
 .calendar-column{
   flex: 7;
@@ -28,6 +30,12 @@
   height: 200px;
   border-bottom: 1px solid #333333;
   padding: 3px 5px;
+  opacity: 0.6;
+}
+.calendar-row.current-month{
+  color: #333333;
+  font-weight: 500;
+  opacity: 1;
 }
 .calendar-row.day{
   padding: 0 5px;
