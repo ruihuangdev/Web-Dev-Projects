@@ -173,7 +173,15 @@ function updateDate() {
   }
 }
 
+const newEvent = document.querySelector(".newEvent");
+const newEventForm = newEvent.querySelector("form");
+const newEventClose = newEvent.querySelector("#closeNewEvent");
 function chooseDate() {
   console.log(Months[currentMonth] + " " + this.innerHTML);
-  // choose the Date, update this value to the add event form
+  newEvent.style.display = "flex";
+}
+newEventClose.addEventListener("click", closeForm);
+
+function closeForm() {
+  newEvent.style.display = "none";
 }

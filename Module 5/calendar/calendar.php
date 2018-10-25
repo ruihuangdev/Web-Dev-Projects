@@ -67,8 +67,9 @@
   </div>
 </section>
 
-<div class="newEvent center container">
+<div class="newEvent pinned center">
   <form>
+    <i id="closeNewEvent" class="material-icons">close</i>
     <label for="event-date">Date</label>
     <input type="date" name="event-date" id="event-date">
     <label for="event-time">time</label>
