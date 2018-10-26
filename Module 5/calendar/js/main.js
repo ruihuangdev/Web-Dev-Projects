@@ -199,18 +199,41 @@ function chooseDate() {
   }
   newEventDate.value = chosenDate;
 }
-newEventClose.addEventListener("click", closeForm);
-
-function closeForm() {
-  newEvent.style.display = "none";
-}
-
 /*
   Handles the behavior of the new event form
   chooseDate is called when a calendar date is clicked.
   This function displays the event form with prepopulated date
   Had to do a lot of string manipulation to make it work, maybe a refactor is needed
 */
+
+newEventClose.addEventListener("click", closeForm);
+
+function closeForm() {
+  newEvent.style.display = "none";
+}
+
+newEventForm.addEventListener("submit", e => {
+  e.preventDefault();
+  addEvent();
+});
+
+function addEvent() {
+  let XHR = new XMLHttpRequest();
+  let FD = new FormData();
+  XHR.addEventListener("load", () => {
+    let responseData = JSON.parse(event.target.responseText);
+    if (responseData.eventadded === true) {
+      alert("Event added!");
+    } else {
+      alert("Something went wrong (GOOD KIND)");
+    }
+  });
+  XHR.addEventListener("error", () => {
+    console.error("Something went wrong");
+  });
+  XHR.open("POST", "./includes/event.inc.php");
+  XHR.send(FD);
+}
 
 /*
 TODO:

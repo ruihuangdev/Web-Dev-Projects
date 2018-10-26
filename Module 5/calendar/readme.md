@@ -1,3 +1,3 @@
-link to the website:
+link to project:
 
 coming soon!

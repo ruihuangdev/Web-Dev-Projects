@@ -76,6 +76,7 @@
     <input type="time" name="event-time" id="event-time">
     <label for="event-name">Event</label>
     <input type="text" name="event-name" id="event-name">
+    <input type="hidden" name="submit">
     <button type="submit" class="btn waves-effect waves-light blue" name="submit">Add Event</button>
   </form>
 </div>
