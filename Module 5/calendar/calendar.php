@@ -14,6 +14,15 @@
       <a id="nextMonth"><i class="material-icons">arrow_forward</i></a>
     </div>
   </div>
+  <div class="calendar-head">
+    <div class="weekday">Sun</div>
+    <div class="weekday">Mon</div>
+    <div class="weekday">Tue</div>
+    <div class="weekday">Wed</div>
+    <div class="weekday">Thu</div>
+    <div class="weekday">Fri</div>
+    <div class="weekday">Sat</div>
+  </div>
   <div class="calendar-display" id="calendar">
     <div class="calendar-column">
       <div class="calendar-row">1</div>
@@ -21,6 +30,7 @@
       <div class="calendar-row">3</div>
       <div class="calendar-row">4</div>
       <div class="calendar-row">5</div>
+      <div class="calendar-row last">6</div>
     </div>
     <div class="calendar-column">
       <div class="calendar-row">1</div>
@@ -28,6 +38,7 @@
       <div class="calendar-row">3</div>
       <div class="calendar-row">4</div>
       <div class="calendar-row">5</div>
+      <div class="calendar-row last">6</div>
     </div>
     <div class="calendar-column">
       <div class="calendar-row">1</div>
@@ -35,6 +46,7 @@
       <div class="calendar-row">3</div>
       <div class="calendar-row">4</div>
       <div class="calendar-row">5</div>
+      <div class="calendar-row last">6</div>
     </div>
     <div class="calendar-column">
       <div class="calendar-row">1</div>
@@ -42,6 +54,7 @@
       <div class="calendar-row">3</div>
       <div class="calendar-row">4</div>
       <div class="calendar-row">5</div>
+      <div class="calendar-row last">6</div>
     </div>
     <div class="calendar-column">
       <div class="calendar-row">1</div>
@@ -49,6 +62,7 @@
       <div class="calendar-row">3</div>
       <div class="calendar-row">4</div>
       <div class="calendar-row">5</div>
+      <div class="calendar-row last">6</div>
     </div>
     <div class="calendar-column">
       <div class="calendar-row">1</div>
@@ -56,6 +70,7 @@
       <div class="calendar-row">3</div>
       <div class="calendar-row">4</div>
       <div class="calendar-row">5</div>
+      <div class="calendar-row last">6</div>
     </div>
     <div class="calendar-column">
       <div class="calendar-row">1</div>
@@ -63,6 +78,7 @@
       <div class="calendar-row">3</div>
       <div class="calendar-row">4</div>
       <div class="calendar-row">5</div>
+      <div class="calendar-row last">6</div>
     </div>
   </div>
 </section>

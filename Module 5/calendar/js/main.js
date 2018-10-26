@@ -131,6 +131,14 @@ nextMonth.addEventListener("click", () => {
 
 const calendar = document.querySelector("#calendar");
 const eachWeekday = calendar.querySelectorAll(".calendar-column");
+const lastCalendarRow = calendar.querySelectorAll(".calendar-row.last");
+function showLastRow() {
+  lastCalendarRow.forEach(el => el.setAttribute("style", "display:block"));
+}
+function hideLastRow() {
+  lastCalendarRow.forEach(el => el.setAttribute("style", "display:none"));
+}
+
 function updateDate() {
   displayMonth.innerHTML = Months[currentMonth];
   displayYear.innerHTML = currentYear;
@@ -140,12 +148,16 @@ function updateDate() {
   //Use the given js lib provided by the class
 
   let weeks = thisMonth.getWeeks();
-
+  if (weeks.length === 6) {
+    showLastRow();
+  } else {
+    hideLastRow();
+  }
   for (let w in weeks) {
     let days = weeks[w].getDates();
 
     for (let d in days) {
-      eachWeekday[d].children[w].classList.remove("current-month");
+      eachWeekday[d].children[w].className = "calendar-row";
       eachWeekday[d].children[w].innerHTML = days[d].getDate();
       if (days[d].getMonth() === currentMonth) {
         eachWeekday[d].children[w].classList.add("current-month");
@@ -187,6 +199,9 @@ const newEventDate = newEvent.querySelector("#event-date");
 function chooseDate() {
   newEvent.style.display = "flex";
   currentRealMonth = currentMonth + 1;
+  if (currentRealMonth < 10) {
+    currentRealMonth = "0" + currentRealMonth;
+  }
   if (this.childNodes.length > 1) {
     chosenDate =
       currentYear + "-" + currentRealMonth + "-0" + this.childNodes[1].data;

@@ -12,10 +12,19 @@
   width: 150px;
   justify-content: center;
 }
+.calendar-head{
+  display: flex;
+  flex-direction: row;
+  margin: 20px auto 0 auto;
+  width: 90%;
+}
+.weekday{
+  flex: 7;
+}
 .calendar-display{
   display: flex;
   flex-direction: row;
-  margin: 20px auto 40px auto;
+  margin: 0 auto 40px auto;
   width: 90%;
 }
 .calendar-column{
@@ -42,6 +51,9 @@
   border-bottom: none;
   height: auto;
   color: grey;
+}
+.calendar-row.last{
+  display: none;
 }
 .newEvent {
   height: 100vh;
