@@ -45,6 +45,7 @@ function signOutUser() {
     let responseData = JSON.parse(event.target.responseText);
     if (responseData.loggedout === true) {
       alert("Logout success!");
+      welcome.innerHTML = "";
       userActions.setAttribute("style", "display: block");
       userLogout.setAttribute("style", "display: none");
       signedInAs.innerHTML = "You are currently logged in as ";
@@ -83,7 +84,6 @@ function registerUser() {
 }
 
 //calendar
-
 const displayMonth = document.querySelector("#month");
 const displayYear = document.querySelector("#year");
 const currentDate = new Date();
@@ -127,7 +127,6 @@ nextMonth.addEventListener("click", () => {
   }
   updateDate();
 });
-
 // This part is pretty straight forward, increase/decrease month and year
 
 const calendar = document.querySelector("#calendar");
@@ -141,18 +140,21 @@ function updateDate() {
   //Use the given js lib provided by the class
 
   let weeks = thisMonth.getWeeks();
+
   for (let w in weeks) {
     let days = weeks[w].getDates();
+
     for (let d in days) {
       eachWeekday[d].children[w].classList.remove("current-month");
-
       eachWeekday[d].children[w].innerHTML = days[d].getDate();
       if (days[d].getMonth() === currentMonth) {
         eachWeekday[d].children[w].classList.add("current-month");
       }
       if (eachWeekday[d].children[w].innerHTML === "1") {
-        eachWeekday[d].children[w].innerHTML =
-          Months[days[d].getMonth()].substring(0, 3) + " 1";
+        let monthName = document.createTextNode(
+          Months[days[d].getMonth()].substring(0, 3) + " "
+        );
+        eachWeekday[d].children[w].prepend(monthName);
       }
       calendar
         .querySelectorAll(".calendar-row")
@@ -165,9 +167,13 @@ function updateDate() {
       use a nested loop to update each element in the calendar div
       if the date happens to be 1, update the innerHTML to have the first 3 chars of the month
 
-      This feels hacky and may potentially be bad for adding appointments.
-      Will have to see how that's implemented.
-      For now, there is room to refactor.
+      Give the divs with the current month a class of ".current-month"
+      This allow us to style them differently as well as add event listener on them
+
+      The event listener must be removed after month is updated
+      similarly, .current-month have to be removed too
+
+      This feels hacky, there is room to refactor.
       */
     }
   }
@@ -176,9 +182,22 @@ function updateDate() {
 const newEvent = document.querySelector(".newEvent");
 const newEventForm = newEvent.querySelector("form");
 const newEventClose = newEvent.querySelector("#closeNewEvent");
+const newEventDate = newEvent.querySelector("#event-date");
+
 function chooseDate() {
-  console.log(Months[currentMonth] + " " + this.innerHTML);
   newEvent.style.display = "flex";
+  currentRealMonth = currentMonth + 1;
+  if (this.childNodes.length > 1) {
+    chosenDate =
+      currentYear + "-" + currentRealMonth + "-0" + this.childNodes[1].data;
+  } else {
+    if (this.innerHTML.length === 1) {
+      chosenDate = currentYear + "-" + currentRealMonth + "-0" + this.innerHTML;
+    } else {
+      chosenDate = currentYear + "-" + currentRealMonth + "-" + this.innerHTML;
+    }
+  }
+  newEventDate.value = chosenDate;
 }
 newEventClose.addEventListener("click", closeForm);
 
@@ -186,10 +205,17 @@ function closeForm() {
   newEvent.style.display = "none";
 }
 
-/* 
+/*
+  Handles the behavior of the new event form
+  chooseDate is called when a calendar date is clicked.
+  This function displays the event form with prepopulated date
+  Had to do a lot of string manipulation to make it work, maybe a refactor is needed
+*/
+
+/*
 TODO:
-1. Welcome message doesn't go away after signed out
-2. Hook up add event form with db
-3. make add event form a pop up
-4. display events conditionally for signed in users
+1. Hook up add event form with db
+2. display events conditionally for signed in users
+3. ability to remove event
+4. Being able to close the event form field when clicked out of the popup
 */
