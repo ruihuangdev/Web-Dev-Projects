@@ -1,41 +1,38 @@
 <?php
 header("Content-Type: application/json");
 
-if(isset($_POST['submit'])){
+if (isset($_POST['submit'])) {
   $first = $_POST['first'];
-  $last =  $_POST['last'];
+  $last = $_POST['last'];
   $email = $_POST['email'];
   $uid = $_POST['uid'];
   $pwd = $_POST['pwd'];
 
   //error handlers
   //check for empty fields
-  if(empty($first)||empty($last)||empty($email)||empty($uid)||empty($pwd)){
+  if (empty($first) || empty($last) || empty($email) || empty($uid) || empty($pwd)) {
     echo json_encode(array(
       "userCreated" => false,
       "message" => "Don't leave any field empty!",
     ));
     exit();
-  }
-  else{
+  } else {
     //check if input characters are valid
-    if(!preg_match("/^[a-zA-Z]*$/", $first)||!preg_match("/^[a-zA-Z]*$/", $last)){
+    if (!preg_match("/^[a-zA-Z]*$/", $first) || !preg_match("/^[a-zA-Z]*$/", $last)) {
       echo json_encode(array(
         "userCreated" => false,
         "message" => "Invalid first name/last name",
       ));
       exit();
-    }
-    else{
+    } else {
       //check if email is valid
-      if (!filter_var($email, FILTER_VALIDATE_EMAIL)){
+      if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         echo json_encode(array(
           "userCreated" => false,
           "message" => "Invalid email",
         ));
         exit();
-      }
-      else{
+      } else {
         require 'database.php';
         $stmt = $mysqli->prepare("SELECT COUNT(*) FROM users WHERE user_uid=?");
         $stmt->bind_param('s', $uid);
@@ -43,19 +40,18 @@ if(isset($_POST['submit'])){
         $stmt->bind_result($dupe);
         $stmt->fetch();
         $stmt->close();
-        if($dupe > 0){
+        if ($dupe > 0) {
           echo json_encode(array(
             "userCreated" => false,
             "message" => "username exists!",
           ));
           exit();
-        }
-        else{
+        } else {
           ///Hashing the password
           $hashedPWD = password_hash($pwd, PASSWORD_BCRYPT);
 
           $stmt = $mysqli->prepare("INSERT INTO users (user_first_name, user_last_name, user_email, user_uid, user_pwd) VALUES (?,?,?,?,?)");
-          if(!$stmt){
+          if (!$stmt) {
             printf("Query Prep Failed: %s\n", $mysqli->error);
             exit;
           }
@@ -64,15 +60,14 @@ if(isset($_POST['submit'])){
           $stmt->close();
           echo json_encode(array(
             "userCreated" => true,
-            "message" => "User ".$uid." created!",
+            "message" => "User " . $uid . " created!",
           ));
           exit();
         }
       }
     }
   }
-}
-else{
+} else {
   echo json_encode(array(
     "userCreated" => false,
     "message" => "Something went wrong!",
