@@ -258,4 +258,5 @@ TODO:
 2. display events conditionally for signed in users
 3. ability to remove event
 4. Being able to close the event form field when clicked out of the popup
+5. Refector ajax to then...then...
 */
