@@ -40,7 +40,9 @@ if (isset($_POST['submit'])) {
           ));
           exit();
         } else if ($hashedPwdCheck == true) {
-          ini_set("session.cookie_httponly", 1);
+          ini_set('session.cookie_secure', '1');
+          ini_set('session.cookie_httponly', '1');
+          ini_set('session.use_only_cookies', '1');
           session_start();
           $_SESSION["user_id"] = htmlentities($user_id);
           $_SESSION["token"] = htmlentities(bin2hex(openssl_random_pseudo_bytes(32)));
@@ -48,7 +50,6 @@ if (isset($_POST['submit'])) {
             "loggedin" => true,
             "username" => $user_id,
             "message" => "welcome back, " . $user_id . "!",
-            "token" => $_SESSION["token"]
           ));
           exit();
         }

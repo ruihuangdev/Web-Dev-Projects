@@ -88,11 +88,13 @@
     <i id="closeNewEvent" class="material-icons">close</i>
     <label for="event-date">Date</label>
     <input type="date" name="event-date" id="event-date">
-    <label for="event-time">time</label>
-    <input type="time" name="event-time" id="event-time">
+    <label for="event-start-time">Start time</label>
+    <input type="time" name="event-start-time" id="event-start-time">
+    <label for="event-end-time">End time</label>
+    <input type="time" name="event-end-time" id="event-end-time">
     <label for="event-name">Event</label>
     <input type="text" name="event-name" id="event-name">
-    <input type="hidden" name="submit">
+    <input type="hidden" name="token" value="<?php echo $_SESSION['token']; ?>">
     <button type="submit" class="btn waves-effect waves-light blue" name="submit">Add Event</button>
   </form>
 </div>
