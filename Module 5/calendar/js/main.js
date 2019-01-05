@@ -17,7 +17,7 @@ function signInUser() {
 	XHR.addEventListener("load", () => {
 		let responseData = JSON.parse(event.target.responseText);
 		if (responseData.loggedin === true) {
-			alert("Login success!");
+			alert(responseData.message);
 			welcome.innerHTML = responseData.message;
 			userActions.setAttribute("style", "display: none");
 			signedInAs.innerHTML += " " + responseData.username;
@@ -229,6 +229,8 @@ function closeForm() {
 
 newEventForm.addEventListener("submit", e => {
 	e.preventDefault();
+	let FD = new FormData(newEventForm);
+
 	addEvent();
 });
 
@@ -241,7 +243,7 @@ function addEvent() {
 		if (responseData.eventadded === true) {
 			alert("Event added!");
 		} else {
-			alert("Something went wrong (GOOD KIND)");
+			alert(responseData.message);
 		}
 		console.log(responseData);
 	});

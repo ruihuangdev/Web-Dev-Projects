@@ -10,7 +10,6 @@ if (!hash_equals($_SESSION['token'], $_POST['token'])) {
     "eventadded" => false,
     "message" => "Request forgery detected"
   ));
-  die();
 } else {
   $user_id = $_SESSION["user_id"];
   $event_date = htmlentities($_POST['event-date']);
@@ -32,12 +31,24 @@ if (!hash_equals($_SESSION['token'], $_POST['token'])) {
     ));
     exit();
   } else {
+
+    $event_start_datetime = date('Y-m-d H:i:s', strtotime($event_date . " " . $event_start_time));
+    $event_end_datetime = date('Y-m-d H:i:s', strtotime($event_date . " " . $event_end_time));
+
+    require 'database.php';
+    $stmt = $mysqli->prepare("INSERT INTO EVENTS (user_uid, event_name, event_starttime, event_endtime) VALUES (?,?,?,?)");
+    if (!$stmt) {
+      printf("Query Prep Failed: %s\n", $mysqli->error);
+      exit;
+    }
+    $stmt->bind_param('ssss', $user_id, $event_name, $event_start_datetime, $event_end_datetime);
+    $stmt->execute();
+    $stmt->close();
     echo json_encode(array(
       "eventadded" => true,
       "user_id" => $user_id,
-      "event_date" => $event_date,
-      "event_start_time" => $event_start_time,
-      "event_end_time" => $event_end_time,
+      "event_start_time" => $event_start_datetime,
+      "event_end_time" => $event_end_datetime,
       "event_name" => $event_name
     ));
     exit();

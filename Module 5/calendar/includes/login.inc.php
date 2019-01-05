@@ -44,8 +44,10 @@ if (isset($_POST['submit'])) {
           ini_set('session.cookie_httponly', '1');
           ini_set('session.use_only_cookies', '1');
           session_start();
-          $_SESSION["user_id"] = htmlentities($user_id);
-          $_SESSION["token"] = htmlentities(bin2hex(openssl_random_pseudo_bytes(32)));
+          if (!isset($_SESSION['token'])) {
+            $_SESSION["user_id"] = htmlentities($user_id);
+            $_SESSION["token"] = htmlentities(bin2hex(openssl_random_pseudo_bytes(32)));
+          }
           echo json_encode(array(
             "loggedin" => true,
             "username" => $user_id,

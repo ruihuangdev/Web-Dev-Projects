@@ -94,7 +94,7 @@
     <input type="time" name="event-end-time" id="event-end-time">
     <label for="event-name">Event</label>
     <input type="text" name="event-name" id="event-name">
-    <input type="hidden" name="token" value="<?php echo $_SESSION['token']; ?>">
+    <input type="hidden" name="token" value="<?= $_SESSION['token']; ?>">
     <button type="submit" class="btn waves-effect waves-light blue" name="submit">Add Event</button>
   </form>
 </div>
